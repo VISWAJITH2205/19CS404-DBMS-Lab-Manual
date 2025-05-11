@@ -29,66 +29,146 @@ END;
 
 ## 1. Write a PL/SQL program to find the Greatest of Two Numbers
 
-### Steps:
-- Declare two numeric variables and initialize them.
-- Use an `IF` statement to compare the values.
-- Display the greater number using `DBMS_OUTPUT.PUT_LINE`.
+### PROGRAM :
+```
+DECLARE
+   num1 NUMBER := 25;  
+   num2 NUMBER := 40;
+   greatest NUMBER;
+BEGIN
+   IF num1 > num2 THEN
+      greatest := num1;
+   ELSE
+      greatest := num2;
+   END IF;
 
-**Expected Output:**  
-Greater number is: 80
+   DBMS_OUTPUT.PUT_LINE('The greatest number is: ' || greatest);
+END;
+/
+```
+
+### OUTPUT :
+
+![Screenshot 2025-05-11 223223](https://github.com/user-attachments/assets/9abd2b59-9be7-4711-b4c3-df058f24a7d2)
+
 
 ---
 
 ## 2. Write a PL/SQL program to Calculate Sum of First N Natural Numbers
 
-### Steps:
-- Declare a variable `n` and assign a value (e.g., 10).
-- Initialize a `sum` variable to 0.
-- Use a `WHILE` loop to iterate from 1 to `n`, adding each number to the sum.
-- Display the result using `DBMS_OUTPUT.PUT_LINE`.
+### PROGRAM :
+```
+DECLARE
+   N         NUMBER := 10; 
+   counter   NUMBER := 1;
+   sum       NUMBER := 0;
+BEGIN
+   WHILE counter <= N LOOP
+      sum := sum + counter;
+      counter := counter + 1;
+   END LOOP;
 
-**Expected Output:**  
-Sum of first 10 natural numbers is: 55
+   DBMS_OUTPUT.PUT_LINE('Sum of first ' || N || ' natural numbers is: ' || sum);
+END;
+/
+```
+
+### OUTPUT :
+
+![Screenshot 2025-05-11 223753](https://github.com/user-attachments/assets/ba565639-b1ce-473f-8fed-7dfb5a4ab412)
+
 
 ---
 
 ## 3. Write a PL/SQL program to generate Fibonacci series
 
-### Steps:
-- Declare the variable `n` to indicate how many terms to generate.
-- Initialize the first two Fibonacci numbers (0 and 1).
-- Use a loop to generate the next terms using the formula `c = a + b`.
-- Print each term in the series.
+### PROGRAM :
+```
+DECLARE
+   n        NUMBER := 10;  
+   a        NUMBER := 0;
+   b        NUMBER := 1;
+   c        NUMBER;
+   counter  NUMBER := 1;
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Fibonacci Series:');
+   WHILE counter <= n LOOP
+      DBMS_OUTPUT.PUT_LINE(a);
+      c := a + b;
+      a := b;
+      b := c;
+      counter := counter + 1;
+   END LOOP;
+END;
+/
 
-**Expected Output:**  
-n = 7  
-Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
+```
+
+### OUTPUT :
+
+![Screenshot 2025-05-11 224002](https://github.com/user-attachments/assets/002fb3d9-f110-4f66-ab5c-a955a261728e)
+
 
 ---
 
 ## 4. Write a PL/SQL Program to display the number in Reverse Order
 
-### Steps:
-- Declare a variable `n` and assign a value (e.g., 1535).
-- Use a loop to extract each digit using modulo and reverse the number.
-- Display the reversed number.
+### PROGRAM :
+```
+DECLARE
+    original_number NUMBER := 12345; 
+    reversed_number NUMBER := 0;
+    remainder NUMBER;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Original Number: ' || original_number);
+    
+    WHILE original_number > 0 LOOP
+        remainder := MOD(original_number, 10);
+        reversed_number := (reversed_number * 10) + remainder;
+        original_number := TRUNC(original_number / 10);
+    END LOOP;
 
-**Expected Output:**  
-n = 1535  
-Reversed number is 5351
+    DBMS_OUTPUT.PUT_LINE('Reversed Number: ' || reversed_number);
+END;
+/
+```
+
+### OUTPUT :
+
+![Screenshot 2025-05-11 224203](https://github.com/user-attachments/assets/5a5cf377-0c9c-4921-9531-6efe55c20f41)
+
 
 ---
 
 ## 5. Write a PL/SQL program to find the largest of three numbers
 
-### Steps:
-- Declare three numeric variables `a`, `b`, and `c`.
-- Use nested `IF-ELSIF-ELSE` conditions to find the largest among the three.
-- Display the largest number.
+### PROGRAM :
+```
+DECLARE
+   num1 NUMBER := 25;  
+   num2 NUMBER := 42;
+   num3 NUMBER := 17;
+   largest NUMBER;
+BEGIN
+   IF num1 >= num2 AND num1 >= num3 THEN
+      largest := num1;
+   ELSIF num2 >= num1 AND num2 >= num3 THEN
+      largest := num2;
+   ELSE
+      largest := num3;
+   END IF;
 
-**Expected Output:**  
-a = 10, b = 9, c = 15  
-Largest of three number is 15
+   DBMS_OUTPUT.PUT_LINE('The largest number is: ' || largest);
+END;
+/
+```
+
+### OUTPUT :
+
+![Screenshot 2025-05-11 224504](https://github.com/user-attachments/assets/0642279c-cc51-4ce7-8af6-46193a9ff207)
+
+
+---
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
